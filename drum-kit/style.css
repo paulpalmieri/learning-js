@@ -9,23 +9,39 @@ html {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
-    
+    align-items: flex-start;
+  }
+
+  #container {
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    flex-direction: column;
   }
   
+  h3 {
+    text-align: center;
+    align-items: center;
+    font-size: 5rem;
+    margin: 2rem;
+  }
+
   #keys_container {
-    width: 50vh;
+    margin: 0;
+    padding: 0;
+    width: 99vh;
     display: flex;
     min-height: 100vh;
     flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
-    justify-content: center; 
+    align-items: flex-start;
+    align-content: flex-start;
+    /* justify-content: center;  */ 
   
   }
   
   .key {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     border: .1rem solid black;
