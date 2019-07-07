@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title of the document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Add material design stylesheets -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
+    />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+      type="text/css"
+    />
+    <style>
+      #container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 30%;
+        margin: 0 auto;
+      }
+      @media only screen and (max-width: 1300px) {
+        #container {
+          width: 95%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <h3 style="margin-bottom:0;">Learning JS</h3>
+      <ul class="demo-list-three mdl-list">
+        <li class="mdl-list__item mdl-list__item--three-line">
+          <span class="mdl-list__item-primary-content">
+            <!-- <i class="material-icons mdl-list__item-avatar">person</i> -->
+            <a href="drum-kit/index.html">drum-kit</a>
+            <span class="mdl-list__item-text-body">
+              A simple drum-kit made with vanilla JS
+            </span>
+          </span>
+          <span class="mdl-list__item-secondary-content">
+            <a
+              href="drum-kit/index.html"
+              class="mdl-list__item-secondary-action"
+              href="#"
+              ><i class="material-icons">music_note</i></a
+            >
+          </span>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
