@@ -1,4 +1,5 @@
 // store path for sounds
+// all the same for now
 const audio_paths = {
   65: { key: "A", src: "808-Clap01.wav" },
   66: { key: "B", src: "808-Clap01.wav" },
@@ -31,14 +32,21 @@ const audio_paths = {
 function generateKeys() {
   var keys_container = document.getElementById("keys_container");
   for (var i = 65; i <= 90; i++) {
+    // create div
     var key_container = document.createElement("div");
     key_container.setAttribute("data-key", i);
     key_container.setAttribute("class", "key");
+
+    // create kbd input
     var kbd_element = document.createElement("kbd");
     kbd_element.innerHTML = audio_paths[i].key;
+
+    // create span
     var span_element = document.createElement("span");
     span_element.setAttribute("class", "sound");
     span_element.innerHTML = audio_paths[i].src.slice(0, -4);
+
+    // bind everything
     key_container.appendChild(kbd_element);
     key_container.appendChild(span_element);
     keys_container.appendChild(key_container);
@@ -72,9 +80,33 @@ function playSound(e) {
   key.classList.add("playing");
 }
 
+function handleDarkMode(e) {
+  let container = document.getElementById("container");
+  let icon_element = document.getElementsByClassName(
+    "mdl-icon-toggle__label"
+  )[0];
+  if (this.checked) {
+    container.classList.add("dark_mode");
+    icon_element.innerHTML = "brightness_7";
+  } else {
+    container.classList.remove("dark_mode");
+    icon_element.innerHTML = "brightness_1";
+  }
+}
+
+// create tags
 generateKeys();
 generateAudioTags();
 
 const keys = document.querySelectorAll(".key");
+
+// bind keyboard event listener
 window.addEventListener("keydown", playSound);
+
+// bind transition listener event listener
 keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+
+// bind dark mode
+document
+  .getElementById("icon-toggle-2")
+  .addEventListener("change", handleDarkMode);
