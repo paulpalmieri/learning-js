@@ -69,11 +69,24 @@ function removeTransition(e) {
   console.log(e.propertyName);
 }
 
-function playSound(e) {
-  console.log(e.keyCode);
+function playSoundKeyboard(e) {
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-  console.log(key);
+  playSound(key, audio);
+}
+
+function playSoundClick(e) {
+  let key, audio;
+  if(e.target.tagName === 'SPAN' || e.target.tagName === 'KBD') {
+    key = e.target.parentNode;
+  } else {
+    key = e.target;
+  }
+  audio = document.querySelector(`audio[data-key="${key.getAttribute('data-key')}"]`);
+  playSound(key, audio);
+}
+
+function playSound(key, audio) {
   if (!audio) return;
   audio.currentTime = 0;
   audio.play();
@@ -101,10 +114,11 @@ generateAudioTags();
 const keys = document.querySelectorAll(".key");
 
 // bind keyboard event listener
-window.addEventListener("keydown", playSound);
+window.addEventListener("keydown", playSoundKeyboard);
 
 // bind transition listener event listener
 keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+keys.forEach(key => key.addEventListener("click", playSoundClick));
 
 // bind dark mode
 document
